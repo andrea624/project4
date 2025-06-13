@@ -1,5 +1,5 @@
--- Andrea Martinez
--- CMPM 121 Project 3
+-- Andrea Martinez & Andrea Morales Villegas
+-- CMPM 121 Project 4
 
 require "vector"
 local Card = require("card")
@@ -9,6 +9,7 @@ local CARD_HEIGHT = 70
 
 local swordImg
 local titleBackground
+local creditsBackground
 local backgroundMusic
 
 local gameState = "menu"
@@ -43,6 +44,7 @@ function love.load()
   love.window.setMode(960, 640)
   swordImg = love.graphics.newImage("assets/sword.png")
   titleBackground = love.graphics.newImage("assets/back.png")
+  creditsBackground = love.graphics.newImage("assets/credits.png")
 
   local cardDeckNames = {"Zeus", "Ares","Medusa", "Cyclops", "Poseidon", "Artemis", "Hera", "Demeter", "Hades", "Hercules", "Dionysus", "Hermes", "Hydra", "Ship of Theseus", "Sword of Damocles", "Midas", "Aphrodite", "Athena", "Apollo", "Hephaestus", "Persephone", "Prometheus", "Pandora", "Icarus", "Iris", "Nyx", "Atlas", "Daedalus", "Helios", "Mnemosyne"
   }
@@ -100,9 +102,9 @@ function love.draw()
       -- credits
       if gameState == "credits" then
         love.graphics.setBackgroundColor(0.2, 0.2, 0.2, 1)
+        love.graphics.draw(creditsBackground, 0, 0)
         love.graphics.setColor(1, 1, 1, 1)
         love.graphics.printf("Press [Q] to return", 0, 300, love.graphics.getWidth(), "center")
-        -- add credits
         return
       end
   
